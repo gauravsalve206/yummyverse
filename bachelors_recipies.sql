@@ -4,7 +4,8 @@ INSERT INTO categories (name) VALUES
 ('Lunch'), 
 ('Dinner'), 
 ('Snack'), 
-('Dessert');
+('Dessert'),
+('Beverages');
 
 -- Insert areas
 INSERT INTO areas (name) VALUES 
@@ -14,7 +15,7 @@ INSERT INTO areas (name) VALUES
 ('West Indian');
 
 -- Recipies
-INSERT INTO recipes (name, category_id, area_id, instructions, image_url, youtube_url) VALUES 
+INSERT INTO recipes (name, category_id, area_id, instructions, image_url, video_url) VALUES 
 -- Breakfast Recipes
 ('Poha', 1, 4, 'Wash poha thoroughly to remove excess starch and soak lightly. Heat oil in a pan, add mustard seeds, curry leaves, and chopped green chilies. Sauté onions until translucent and mix in the poha. Season with salt, turmeric, and sugar, and mix well. Garnish with fresh coriander and serve with lemon wedges.', 
 'https://example.com/images/poha.jpg', 'https://youtu.be/examplepoha'), 
@@ -117,7 +118,7 @@ INSERT INTO recipes (name, category_id, area_id, instructions, image_url, youtub
 
 -- Ingredients
 -- Ingredients Table Insertions
-INSERT INTO Ingredients (ingredient_id, ingredient_name) VALUES  
+INSERT INTO ingredients (ingredient_id,name) VALUES  
 (1, 'Flattened Rice'),
 (2, 'Onion'),
 (3, 'Mustard Seeds'),
@@ -152,7 +153,7 @@ INSERT INTO Ingredients (ingredient_id, ingredient_name) VALUES
 -- Ingredients Recipes Linking
 
 -- RecipeIngredients Table Insertions
-INSERT INTO RecipeIngredients (recipe_id, ingredient_id, quantity) VALUES
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, measure) VALUES
 -- Poha
 (1, 1, '2 cups'), -- Flattened Rice
 (1, 2, '1 medium, chopped'), -- Onion
@@ -237,6 +238,157 @@ INSERT INTO RecipeIngredients (recipe_id, ingredient_id, quantity) VALUES
 (10, 25, '2 medium, pureed'), -- Tomato
 (10, 11, '1 cup, diced'), -- Mixed Vegetables
 (10, 23, '2 tbsp'), -- Butter
-(10, 9, 'to taste'); -- Salt
+(10, 9, 'to taste'), -- Salt
 
--- Continue for recipes 11 to 30...
+-- Biryani
+(11, 17, '2 cups, cooked'), -- Rice
+(11, 11, '1 cup, diced'), -- Mixed Vegetables
+(11, 26, '3 cloves, minced'), -- Garlic
+(11, 27, '2 inches, grated'), -- Ginger
+(11, 29, '2 tbsp'), -- Biryani Masala
+(11, 9, 'to taste'), -- Salt
+
+-- Paneer Butter Masala
+(12, 30, '200 g, cubed'), -- Paneer
+(12, 25, '2 medium, pureed'), -- Tomato
+(12, 26, '2 cloves, minced'), -- Garlic
+(12, 27, '1 inch, grated'), -- Ginger
+(12, 23, '2 tbsp'), -- Butter
+(12, 9, 'to taste'), -- Salt
+
+-- Palak Paneer
+(13, 31, '1 bunch, blanched'), -- Spinach
+(13, 30, '200 g, cubed'), -- Paneer
+(13, 26, '2 cloves, minced'), -- Garlic
+(13, 27, '1 inch, grated'), -- Ginger
+(13, 25, '1 medium, pureed'), -- Tomato
+(13, 9, 'to taste'), -- Salt
+
+-- Dal Tadka
+(14, 19, '1 cup, cooked'), -- Toor Dal
+(14, 25, '1 medium, pureed'), -- Tomato
+(14, 2, '1 small, chopped'), -- Onion
+(14, 26, '2 cloves, minced'), -- Garlic
+(14, 6, '6-8'), -- Curry Leaves
+(14, 9, 'to taste'), -- Salt
+
+-- Khichdi
+(15, 17, '1 cup, cooked'), -- Rice
+(15, 19, '1/2 cup, cooked'), -- Lentils
+(15, 11, '1/2 cup, diced'), -- Mixed Vegetables
+(15, 3, '1 tsp'), -- Mustard Seeds
+(15, 6, '6-8'), -- Curry Leaves
+(15, 9, 'to taste'), -- Salt
+
+-- Veg Pulao
+(16, 17, '2 cups, cooked'), -- Rice
+(16, 11, '1 cup, diced'), -- Mixed Vegetables
+(16, 29, '1 tsp'), -- Garam Masala
+(16, 8, '2 tbsp, chopped'), -- Coriander
+(16, 9, 'to taste'), -- Salt
+
+-- Dhokla
+(17, 32, '2 cups'), -- Gram Flour
+(17, 3, '1 tsp'), -- Mustard Seeds
+(17, 5, '1/4 tsp'), -- Turmeric Powder
+(17, 6, '6-8'), -- Curry Leaves
+(17, 9, 'to taste'), -- Salt
+
+-- Stuffed Capsicum
+(18, 33, '3 large'), -- Bell Peppers
+(18, 13, '2 medium, boiled and mashed'), -- Potatoes
+(18, 29, '1 tsp'), -- Garam Masala
+(18, 8, '2 tbsp, chopped'), -- Coriander
+(18, 9, 'to taste'), -- Salt
+
+-- Veg Cutlets
+(19, 13, '2 medium, boiled and mashed'), -- Potatoes
+(19, 11, '1 cup, diced'), -- Mixed Vegetables
+(19, 29, '1 tsp'), -- Garam Masala
+(19, 34, '1 cup, breadcrumbs'), -- Bread Crumbs
+(19, 9, 'to taste'), -- Salt
+
+-- Gajar Halwa
+(20, 35, '2 cups, grated'), -- Carrots
+(20, 36, '1 cup'), -- Milk
+(20, 37, '1/2 cup'), -- Sugar
+(20, 23, '2 tbsp'), -- Butter
+(20, 38, '1/4 cup'), -- Cashews
+(20, 39, '1/4 cup'), -- Raisins
+
+-- Add for recipes 21 to 30 in similar structure...
+
+-- Kheer
+(21, 36, '2 cups'), -- Milk
+(21, 17, '1/4 cup, cooked'), -- Rice
+(21, 37, '1/2 cup'), -- Sugar
+(21, 38, '2 tbsp, chopped'), -- Cashews
+(21, 39, '2 tbsp'), -- Raisins
+
+-- Jalebi
+(22, 40, '1 cup'), -- All-Purpose Flour
+(22, 41, '1 cup'), -- Sugar Syrup
+(22, 42, 'as needed'), -- Ghee
+(22, 43, '1/4 tsp'), -- Saffron
+
+-- Modak
+(23, 44, '2 cups'), -- Rice Flour
+(23, 37, '1 cup'), -- Sugar
+(23, 45, '1/2 cup, grated'), -- Coconut
+(23, 46, '1 tsp'), -- Cardamom Powder
+
+-- Thepla
+(24, 16, '2 cups'), -- Wheat Flour
+(24, 47, '1 cup, grated'), -- Fenugreek Leaves
+(24, 5, '1/4 tsp'), -- Turmeric Powder
+(24, 9, 'to taste'), -- Salt
+(24, 14, 'as needed'), -- Ghee
+
+-- Pav Bhaji
+(25, 13, '3 medium, boiled and mashed'), -- Potatoes
+(25, 25, '3 large, pureed'), -- Tomatoes
+(25, 2, '2 medium, chopped'), -- Onion
+(25, 11, '1 cup, diced'), -- Mixed Vegetables
+(25, 48, '2 tbsp'), -- Pav Bhaji Masala
+(25, 23, '2 tbsp'), -- Butter
+(25, 9, 'to taste'), -- Salt
+
+-- Dosa
+(26, 49, '2 cups, fermented'), -- Dosa Batter
+(26, 14, 'as needed'), -- Ghee
+(26, 13, '1 medium, boiled and mashed'), -- Potatoes
+(26, 50, '1/4 cup, chopped'), -- Green Chilies
+(26, 6, '6-8'), -- Curry Leaves
+(26, 9, 'to taste'), -- Salt
+
+-- Samosa
+(27, 51, '2 cups'), -- All-Purpose Flour
+(27, 13, '3 medium, boiled and mashed'), -- Potatoes
+(27, 11, '1/2 cup, diced'), -- Mixed Vegetables
+(27, 29, '1 tsp'), -- Garam Masala
+(27, 52, 'as needed'), -- Oil
+(27, 9, 'to taste'), -- Salt
+
+-- Chole
+(28, 53, '2 cups, soaked and boiled'), -- Chickpeas
+(28, 25, '3 medium, pureed'), -- Tomatoes
+(28, 2, '2 medium, chopped'), -- Onion
+(28, 26, '2 cloves, minced'), -- Garlic
+(28, 27, '1 inch, grated'), -- Ginger
+(28, 54, '2 tbsp'), -- Chole Masala
+(28, 9, 'to taste'), -- Salt
+
+-- Aloo Paratha
+(29, 16, '2 cups'), -- Wheat Flour
+(29, 13, '2 medium, boiled and mashed'), -- Potatoes
+(29, 8, '2 tbsp, chopped'), -- Coriander
+(29, 50, '1/4 cup, chopped'), -- Green Chilies
+(29, 9, 'to taste'), -- Salt
+(29, 14, 'as needed'), -- Ghee
+
+-- Gulab Jamun
+(30, 55, '1 cup'), -- Khoya
+(30, 40, '2 tbsp'), -- All-Purpose Flour
+(30, 41, '2 cups'), -- Sugar Syrup
+(30, 14, 'as needed'), -- Ghee
+(30, 43, '1/4 tsp'); -- Saffron

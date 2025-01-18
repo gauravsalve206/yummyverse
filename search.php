@@ -77,7 +77,7 @@
         foreach ($data['meals'] as $meal) {
           echo "<div class='meal'>\n";
           echo "<a href='viewRecipe.php?mealId=" . urlencode($meal['idMeal']) . "'><h3>Meal Name: " . htmlspecialchars($meal['strMeal']) . "</h3></a>\n<br>";
-          echo "<img height='200px' width='200px' src=".$meal['strMealThumb'].">\n";
+          echo "<img height='200px' width='200px' src=" . $meal['strMealThumb'] . ">\n";
           echo "Category: " . htmlspecialchars($meal['strCategory']) . "<br>\n";
           echo "</div>\n";
         }

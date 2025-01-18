@@ -52,10 +52,17 @@
         <H1>Wellcome</H1>
         <div class="content">
             <?php
-            
+
             $mealId = $_GET['mealId'];
             // API endpoint
-            $url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i={$mealId}"; //query
+            if ($mealId < 50) {
+                $url = "http://localhost/cpp/api.php?id={$mealId}";//query for localdb
+            } 
+            else {
+                $url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i={$mealId}";//query for mealdb
+            } 
+
+
 
             // Fetch data from the API
             $response = file_get_contents($url);
@@ -72,25 +79,24 @@
 
             if (isset($data['meals']) && is_array($data['meals'])) {
                 //display the data
-                $meal=$data['meals'][0];
-                    if ($meal['strCategory'] === 'Beef') {
-                        alertMeal(); // Skip this recipe not per Our Standards
+                $meal = $data['meals'][0];
+                if ($meal['strCategory'] === 'Beef') {
+                    alertMeal(); // Skip this recipe not per Our Standards
+                }
+                $urlYT = htmlspecialchars($meal['strYoutube']);
+                $parts = explode('v=', $urlYT);
+                echo "<h3 id='mealName'>Meal Name: " . htmlspecialchars($meal['strMeal']) . "</h3>\n";
+                echo '<iframe width="560" height="315" id="YouTube" src="https://www.youtube.com/embed/' . htmlspecialchars($parts[1]) . '?autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                echo "<div class='category'><b>Category:</b> " . htmlspecialchars($meal['strCategory']) . "\n</div>";
+                echo "<div class='ingrediants list'>";
+                echo "<h3 id='mealIngredient'>Ingrediants</h3><UL>";
+                for ($i = 1; $i <= 20; $i++) {
+                    if (($meal['strIngredient' . $i]) <> null and ($meal['strIngredient' . $i]) <> "") {
+                        echo "<li>" . $meal['strIngredient' . $i] . " " . $meal['strMeasure' . $i] . "</li>";
                     }
-                    $urlYT = htmlspecialchars($meal['strYoutube']);
-                    $parts = explode('v=', $urlYT);
-                    echo "<h3 id='mealName'>Meal Name: " . htmlspecialchars($meal['strMeal']) . "</h3>\n";
-                    echo '<iframe width="560" height="315" id="YouTube" src="https://www.youtube.com/embed/'.htmlspecialchars($parts[1]).'?autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-                    echo "<div class='category'><b>Category:</b> " . htmlspecialchars($meal['strCategory']) . "\n</div>";
-                    echo "<div class='ingrediants list'>";
-                    echo "<h3 id='mealIngredient'>Ingrediants</h3><UL>";
-                    for($i=1; $i<=20; $i++) {
-                        if(($meal['strIngredient'.$i])<>null and ($meal['strIngredient'.$i])<>""){
-                        echo "<li>".$meal['strIngredient'.$i]." ".$meal['strMeasure'.$i]."</li>";
-                        }
-                    }
-                    echo "</UL></div>";
-                    echo "<div class='instructions'><b>Instructions:</b> " . nl2br(htmlspecialchars($meal['strInstructions'])) . "\n</div>";
-                
+                }
+                echo "</UL></div>";
+                echo "<div class='instructions'><b>Instructions:</b> " . nl2br(htmlspecialchars($meal['strInstructions'])) . "\n</div>";
             } else {
                 // Display Bootstrap alert if 'meals' is null or not an array
                 alertMeal();
@@ -102,7 +108,8 @@
 
     </div>
     <?php
-    function alertMeal(){
+    function alertMeal()
+    {
         //display alert
         echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Erro!</strong> Error occurred while fetching data..

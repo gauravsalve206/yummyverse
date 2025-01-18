@@ -1,0 +1,527 @@
+* {
+  text-decoration: none;
+  font-family: "poppins", regular;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  padding-top: 80px;
+  width: 100%;
+  /* height: 100%; */
+  margin: 0;
+}
+html{
+  width: 100%;
+}
+.navdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  background: white;
+}
+.navdiv.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+li a {
+  color: black;
+  font-family: "poppins", regular;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 35px;
+}
+button {
+  border-width: 0;
+  background-color: white;
+  border-radius: 5px;
+  width: 50px;
+  font-weight: bold;
+  margin-right: 130px;
+  height: 25px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 5px;
+  padding-left: 60px;
+  overflow:hidden;
+}
+
+.mainimg {
+  width: 500px;
+  margin-left: -29%;
+  z-index: 1;
+}
+.highlight {
+  color: #00ff40;
+}
+.text {
+  padding-top: 0px;
+  font-size: 50px;
+  font-family: "poppins", regular;
+  color: #004526;
+}
+.chefcontainer {
+  position: relative;
+  display: inline-block;
+}
+.main {
+  margin: 0;
+}
+.heading {
+  padding: 0;
+  margin: 0;
+}
+.greenbg {
+  background-color: #00ff40;
+  position: absolute;
+  margin-right: 50px;
+  width: 480px;
+  border-radius: 130px;
+  height: 94%;
+  top: 0;
+  right: 12%;
+  transform: skew(-17deg);
+  z-index: -1;
+}
+/* search bar style */
+.search {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  height: 50px;
+}
+.logoname {
+  font-size: 25px;
+  position: relative;
+  left: -23%;
+  font-weight: 700;
+  font-family: "poppins", regular;
+}
+.searchinput {
+  font-size: 35px;
+  width: 100px;
+  margin-left: 8px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.searchicon {
+  position: absolute;
+  color: #004526;
+  padding: 30px 36px 20px;
+  right: -13%;
+  font-size: 24px;
+  color: #888;
+}
+
+.searchinput::-webkit-search-cancel-button {
+  appearance: none;
+}
+.searchinput {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #004526;
+  border: none;
+
+  border-bottom: 2px solid #004526;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.searchinput::placeholder {
+  color: #004526;
+  font-size: larger;
+}
+
+.searchinput:focus {
+  border-color: #004526;
+}
+
+.textbelow {
+  padding-left: 8px;
+  margin-top: 10px;
+  right: 50%;
+  font-size: 16px;
+  color: #004526;
+}
+.featured-recipes {
+  height: auto;
+  min-height: 100vh;
+  margin: 0px;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+#fr {
+  padding: 0px 20px;
+  margin-bottom: 0px;
+
+}
+.greenbg-fr {
+  background-color: #00ff40;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 13%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.featured-recipes h2 {
+  font-size: 2.5em;
+  color: #004526;
+ 
+}
+
+
+.slider {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+.card {
+  background: white;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 300px;
+  height: 330px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.card:hover {
+  transform: scale(1.09); /* Slight zoom effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+.card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.card .tag {
+  background: green;
+  color: white;
+  padding: 5px 15px;
+
+  /* padding-top: 10px; */
+  font-size: 0.9em;
+  border-radius: 40px;
+  display: inline-block;
+  position: absolute;
+  margin: 75% 10px;
+}
+
+.card h3 {
+  /* padding: 10px; */
+  text-align: center;
+  font-size: 1.3em;
+
+  position: relative;
+  margin-top: 10px;
+}
+
+/* like btn animation */
+:root {
+  --color-blue: rgb(78, 101, 203);
+  --color-purple: rgb(113, 75, 128);
+  --color-pink: rgb(224, 6, 86);
+  --transition-time: 500ms;
+  --transition-ease: cubic-bezier(0.1, 0.7, 0.8, 0.3);
+}
+
+/* Like button container */
+.toggle {
+  padding-left: 230px;
+  padding-top: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  height: 60px;
+  border-radius: 50px;
+  place-items: center;
+  place-content: center;
+}
+.toggle .toggle-btn {
+  background-color: rgba(255, 255, 255, 0.7);
+
+  padding: 8px; /* Padding around the heart icon */
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  display: inline-block; /* Ensure the background only wraps the SVG */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
+}
+.toggle .toggle-btn:hover {
+  background-color: rgba(238, 0, 0, 0.1);
+}
+
+/* Checkbox for like buttons */
+.toggle input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Heart label styling */
+.toggle label {
+  cursor: pointer;
+}
+
+.toggle label svg {
+  width: 35px;
+}
+
+.toggle label #stroke {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+.toggle label #initial {
+  stroke-width: 1.5;
+  stroke: var(--color-pink);
+  fill: transparent;
+}
+
+/* Styling when the checkbox is checked */
+.toggle input[type="checkbox"]:checked + label {
+  svg {
+    transform-origin: 50% 50%;
+    animation: heart var(--transition-time) cubic-bezier(0.64, -1.5, 0.64, 1.5);
+    animation-fill-mode: forwards;
+  }
+}
+
+.toggle input[type="checkbox"]:checked + label #initial {
+  display: none;
+}
+
+.toggle input[type="checkbox"]:checked + label #stroke {
+  animation: stroke var(--transition-time) var(--transition-ease);
+  animation-fill-mode: forwards;
+}
+
+/* Keyframes for the heart animation */
+@keyframes heart {
+  from {
+    transform: scale(1);
+  }
+  78% {
+    transform: scale(1.25);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for the stroke animation */
+@keyframes stroke {
+  from {
+    stroke: var(--color-blue);
+    fill: transparent;
+  }
+  50% {
+    stroke: var(--color-purple);
+  }
+  85% {
+    fill: transparent;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke: var(--color-pink);
+    fill: var(--color-pink);
+  }
+}
+
+/* find recipe by ingredient */
+
+/* .find-recipe {
+  color: #004526;
+  text-align: center;
+} */
+.find-recipe h2 {
+  color: #004526;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.ing-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 0px ;
+}
+
+.first-row,
+.second-row {
+  display: flex;
+  justify-content: center;
+
+  gap: 50px;
+}
+.ing-btn {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  justify-content: flex-start;
+  width: 120px;
+  cursor: pointer;
+  height: 50%;
+  margin: 40px 10px 10px 0px;
+  gap: 10%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.ing-btn:hover {
+  transform: scale(1.09); /* Slight zoom effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+.ing-img {
+  width: 35px;
+
+}
+.ing-cont {
+  margin: 10px 10px 10px;
+}
+
+/* Search Ingrediants Style */
+.search-ing-cont{
+  background-color: #004526;
+  width: 1050px;
+  height: 335px;
+  display: flex;
+  justify-self: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  position: relative;
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 60px;
+  overflow: hidden;
+}
+.searchbar-cont{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  margin: auto;
+  
+}
+/* ingredient list styling */
+.ing-list-cont{
+  background-color: #fff;
+
+  width: 70%;
+  padding: 10px;
+  padding-top: 0;
+  border-radius: 20px;
+  z-index: 10;
+}
+.ing-list-cont h2{
+  color: black;
+  font-size: large;
+  font-weight: 500;
+}
+#ing-list-heading{
+  display: inline-block;
+}
+.fa{
+  position: absolute;
+  left: 15px; 
+  margin: 3.5% 0% 12% 32%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: rgb(58, 53, 53);
+  z-index: 10;
+}
+.ing-searchbar{
+  width: 45%;
+  height: 35px;
+  border-radius: 20px;
+  margin: 3% 0% 6% 15%;
+  outline: none;
+}
+.ing-searchbar::placeholder{
+  padding: 8%;
+  font-size: medium;
+}
+.fa-solid{
+  width: 25px;
+  height: 25px;
+
+}
+
+/* ingredients buttons styling */
+.ing-btn-cont{
+  display: inline-block;
+  width: 100%;
+  margin: 0% 8% 0% 5%;
+  z-index: 10;
+}
+.ing-btn-cont button{
+  width: 85px;
+  margin-top: 6%;
+  align-items:center ;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.ing-btn-cont button:hover{
+  transform: scale(1.09); /* Slight zoom effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+.add-ing{
+  width: 15px;
+  margin-top: 2%;
+  margin-right: 20%;
+  display: inline;
+  /* height: 14px; */
+  left: 0;
+  position: relative;
+  margin-right:7px ;
+}

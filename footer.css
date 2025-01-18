@@ -1,0 +1,78 @@
+.footer{
+    background-color: green;
+    /* margin: 0; */
+    /* margin-top: 100px; */
+    padding: 0;
+
+}
+footer{
+    padding: 15px; 
+    width: 100%;
+    height: fit-content;
+    margin-top: 8%;
+    
+    background-color: #00180D;
+     
+     /* background-color: aliceblue; */
+    display: flex;
+    justify-content: space-between;
+}
+#navigate-text{
+    margin: 0px 0px 0px 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Quando", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.navigate{
+    display: flex;
+    flex-direction: column;
+    justify-items: baseline;
+}
+.navigate ul{
+    display: flex;
+    flex-direction: column;
+}
+.navigate a{
+    color: #B4B4B4;
+    font-family: "Quando", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.info{
+    display:flex ;
+    
+    flex-direction: column;
+    margin: 0px 0px 0px 30px;
+padding: 15px;
+}
+.info h1{
+    font-size: 40px;
+    font-weight: 400;
+    padding-left: 90px;
+    font-family: "Quando", serif;
+    font-weight: 400;
+    margin: 6px 40px 0px 0px;
+    
+}
+#footer-png
+{
+    position: absolute;
+    width: 60px;height: 60px;
+    margin-bottom: 10px;
+    color: #B4B4B4;
+
+}
+#info{
+    display:block;
+    width: 360px;
+    height: fit-content;
+    position: relative;
+    margin: 20px 25px 0px 30px;
+    font-family: "Quando", serif;
+    font-weight: 400;
+    color: #B4B4B4;
+
+}

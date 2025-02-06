@@ -1,0 +1,157 @@
+1 Search By id 
+
+http://localhost/cpp/api.php?id=10
+
+sample responce:-
+{
+  "meals": [
+    {
+      "source": "local",
+      "idMeal": 6,
+      "strMeal": "Rajma Chawal",
+      "strInstructions": "Soak rajma (kidney beans) overnight and cook until soft. Sauté onions, ginger, and garlic in oil, add tomato puree and cook with spices. Mix in cooked rajma and simmer for a few minutes. Serve hot over steamed rice.",
+      "strMealThumb": "https://example.com/images/rajmachawal.jpg",
+      "strYoutube": "https://youtu.be/examplerajmachawal",
+      "strCategory": "Lunch",
+      "strArea": "North Indian",
+      "strIngredient1": "Rice",
+      "strIngredient2": "Urad Dal",
+      "strIngredient3": "Tomato",
+      "strIngredient4": "Garlic",
+      "strIngredient5": "Ginger",
+      "strIngredient6": "Turmeric Powder",
+      "strIngredient7": "Salt",
+      "strIngredient8": null,
+      "strIngredient9": null,
+      "strIngredient10": null,
+      "strIngredient11": null,
+      "strIngredient12": null,
+      "strIngredient13": null,
+      "strIngredient14": null,
+      "strIngredient15": null,
+      "strIngredient16": null,
+      "strIngredient17": null,
+      "strIngredient18": null,
+      "strIngredient19": null,
+      "strIngredient20": null,
+      "strMeasure1": "1 cup, cooked",
+      "strMeasure2": "1 cup, soaked and boiled",
+      "strMeasure3": "2 medium, pureed",
+      "strMeasure4": "2 cloves, minced",
+      "strMeasure5": "1 inch, grated",
+      "strMeasure6": "1/2 tsp",
+      "strMeasure7": "to taste",
+      "strMeasure8": null,
+      "strMeasure9": null,
+      "strMeasure10": null,
+      "strMeasure11": null,
+      "strMeasure12": null,
+      "strMeasure13": null,
+      "strMeasure14": null,
+      "strMeasure15": null,
+      "strMeasure16": null,
+      "strMeasure17": null,
+      "strMeasure18": null,
+      "strMeasure19": null,
+      "strMeasure20": null
+    }
+  ]
+}
+
+
+2 Search By Ingredients
+
+http://localhost/cpp/api.php?ing=eggs,tomato
+
+sample responce:-
+{
+  "meals": [
+    {
+      "recipe_id": 5,
+      "strMeal": "Vegetable Sandwich",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/vegetablesandwich.jpg"
+    },
+    {
+      "recipe_id": 6,
+      "strMeal": "Rajma Chawal",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/rajmachawal.jpg"
+    },
+    {
+      "recipe_id": 7,
+      "strMeal": "Chole Bhature",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/cholebhature.jpg"
+    },
+    {
+      "recipe_id": 9,
+      "strMeal": "Palak Paneer",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/palakpaneer.jpg"
+    },
+    {
+      "recipe_id": 10,
+      "strMeal": "Egg Curry",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/eggcurrry.jpg"
+    },
+    {
+      "recipe_id": 12,
+      "strMeal": "Dal Tadka",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/daltadka.jpg"
+    },
+    {
+      "recipe_id": 13,
+      "strMeal": "Aloo Gobi",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/aloogobi.jpg"
+    },
+    {
+      "recipe_id": 14,
+      "strMeal": "Bhindi Masala",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/bhindimasala.jpg"
+    },
+    {
+      "recipe_id": 20,
+      "strMeal": "Pani Puri",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/panipuri.jpg"
+    },
+    {
+      "recipe_id": 25,
+      "strMeal": "Jalebi",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/jalebi.jpg"
+    },
+    {
+      "recipe_id": 28,
+      "strMeal": "Lassi",
+      "source": "local",
+      "strMealThumb": "https://example.com/images/lassi.jpg"
+    }
+  ]
+}
+
+3.  Search By Name
+
+http://localhost/cpp/api.php?s=poha
+
+sample responce:-
+
+{
+  "meals": [
+    {
+      "source": "local",
+      "idMeal": 1,
+      "strMeal": "Poha",
+      "strInstructions": "Wash poha thoroughly to remove excess starch and soak lightly. Heat oil in a pan, add mustard seeds, curry leaves, and chopped green chilies. Sauté onions until translucent and mix in the poha. Season with salt, turmeric, and sugar, and mix well. Garnish with fresh coriander and serve with lemon wedges.",
+      "strMealThumb": "https://example.com/images/poha.jpg",
+      "strYoutube": "https://youtu.be/examplepoha",
+      "strCategory": "Breakfast",
+      "strArea": "West Indian"
+    }
+  ]
+}

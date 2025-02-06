@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="footer.css" />
+  <link rel="stylesheet" href="card.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -47,13 +48,12 @@
           Hello <span class="highlight">Foddies,</span>Whats Cooking Today?
         </h2>
         <!-- Search bar code -->
-        <form action="" method="get">
+        <form action="search.php" method="get" name="SearchForm">
           <div class="search">
-            <div class="searchicon">
-              <img src="src/icons/icons8-search-30.png" width="" />
+            <div class="searchicon" >
+              <img src="src/icons/icons8-search-30.png" width="" onclick="Javascript:document.SearchForm.submit()" />
             </div>
-
-            <input type="search" id="sbar" class="searchinput" placeholder="" />
+            <input type="search" id="sbar" name="mealName" class="searchinput" placeholder="" />
           </div>
         </form>
 
@@ -79,6 +79,9 @@
     <div class="greenbg-fr"></div>
     <div class="slider">
       <?php
+
+      // TODO Add it to API
+      
       $i = 0;
       $mealIds = array(52772, 11, 25, 8, 5, 22);
       foreach ($mealIds as $mealId) {
@@ -144,43 +147,45 @@
     </div>
     <div class="find-recipe">
       <h2>Find Recipes by Ingredients</h2>
+      <form action="http://localhost/cpp/search.php" method="get">
       <div class="ing-cont">
         <div class="first-row">
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
         </div>
         <div class="second-row">
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
-          <button class="ing-btn">
+          <button class="ing-btn" name="ing" value="potato">
             <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
           </button>
         </div>
       </div>
+      </form>
     </div>
     <!-- search by ingredients list and searchbar -->
     <div class="search-ing-cont">
-      <form action="">
+      <form action="http://localhost/cpp/search.php" method="get">
         <!-- SearchBar and ingrediants buttons -->
         <div class="searcbar-cont">
           <input type="text" class="ing-searchbar" placeholder="Search..." />

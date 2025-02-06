@@ -69,3 +69,5 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("shadow");
     }
   });
+
+  

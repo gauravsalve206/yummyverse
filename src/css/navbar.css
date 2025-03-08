@@ -1,0 +1,76 @@
+/* ===============================
+   Navbar Styles
+   =============================== */
+   * {
+    text-decoration: none;
+    font-family: "poppins", regular;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  body {
+    padding-top: 80px;
+    width: 100%;
+    margin: 0;
+  }
+  
+  html {
+    width: 100%;
+  }
+  
+  /* Navbar Container */
+  .navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background: white;
+  }
+  
+  /* Navbar Shadow on Scroll */
+  .navdiv.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navbar List Items */
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  
+  li a {
+    color: black;
+    font-family: "poppins", regular;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 35px;
+  }
+  
+  /* Navbar Button */
+  button {
+    border-width: 0;
+    background-color: white;
+    border-radius: 5px;
+    width: 50px;
+    font-weight: bold;
+    margin-right: 130px;
+    height: 25px;
+  }
+  
+  /* Logo Name Styling */
+  .logoname {
+    font-size: 25px;
+    position: relative;
+    left: -23%;
+    font-weight: 700;
+    font-family: "poppins", regular;
+  }
+  

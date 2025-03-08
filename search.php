@@ -58,12 +58,12 @@
       if (isset($_GET['mealName'])){
       $mealName = $_GET['mealName'];
       // API endpoint
-        $url = "http://localhost/cpp/api.php?s={$mealName}"; //query for localdb
+        $url = "http://localhost/cpp/src/api/api.php?s={$mealName}"; //query for localdb
       }
       if (isset($_GET['ing'])){
         $ing = $_GET['ing'];
       // API endpoint
-        $url = "http://localhost/cpp/api.php?ing={$ing}"; //query for localdb
+        $url = "http://localhost/cpp/src/api/api.php?ing={$ing}"; //query for localdb
       }
       // Fetch data from the API
       $response = file_get_contents($url);

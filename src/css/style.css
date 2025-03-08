@@ -10,55 +10,19 @@ a {
 body {
   padding-top: 80px;
   width: 100%;
-  /* height: 100%; */
   margin: 0;
 }
-html{
+html {
   width: 100%;
-}
-.navdiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 9%;
-  background: white;
-}
-.navdiv.shadow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-li {
-  list-style: none;
-  display: inline-block;
-}
-li a {
-  color: black;
-  font-family: "poppins", regular;
-  font-size: 15px;
-  font-weight: bold;
-  margin-right: 35px;
-}
-button {
-  border-width: 0;
-  background-color: white;
-  border-radius: 5px;
-  width: 50px;
-  font-weight: bold;
-  margin-right: 130px;
-  height: 25px;
-}
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 5px;
   padding-left: 60px;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .mainimg {
@@ -98,6 +62,7 @@ button {
   transform: skew(-17deg);
   z-index: -1;
 }
+
 /* search bar style */
 .search {
   width: max-content;
@@ -145,7 +110,6 @@ button {
   font-size: 16px;
   color: #004526;
   border: none;
-
   border-bottom: 2px solid #004526;
   outline: none;
   transition: border-color 0.3s ease;
@@ -166,6 +130,8 @@ button {
   font-size: 16px;
   color: #004526;
 }
+
+/* Featured Recipes Section */
 .featured-recipes {
   height: auto;
   min-height: 100vh;
@@ -179,7 +145,6 @@ button {
 #fr {
   padding: 0px 20px;
   margin-bottom: 0px;
-
 }
 .greenbg-fr {
   background-color: #00ff40;
@@ -198,10 +163,9 @@ button {
 .featured-recipes h2 {
   font-size: 2.5em;
   color: #004526;
- 
 }
 
-
+/* Slider Section */
 .slider {
   display: flex;
   overflow-x: scroll;
@@ -214,13 +178,7 @@ button {
   display: none;
 }
 
-
-/* find recipe by ingredient */
-
-/* .find-recipe {
-  color: #004526;
-  text-align: center;
-} */
+/* Find Recipe by Ingredient Section */
 .find-recipe h2 {
   color: #004526;
   margin-bottom: 0px;
@@ -231,22 +189,20 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  margin: 0px ;
+  margin: 0px;
 }
 
 .first-row,
 .second-row {
   display: flex;
   justify-content: center;
-
   gap: 50px;
 }
 .ing-btn {
   display: flex;
   position: relative;
-  justify-content: start;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   width: 120px;
   cursor: pointer;
   height: 50%;
@@ -257,19 +213,18 @@ button {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 .ing-btn:hover {
-  transform: scale(1.09); /* Slight zoom effect */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  transform: scale(1.09);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 .ing-img {
   width: 35px;
-
 }
 .ing-cont {
   margin: 10px 10px 10px;
 }
 
-/* Search Ingrediants Style */
-.search-ing-cont{
+/* Search Ingredients Style */
+.search-ing-cont {
   background-color: #004526;
   width: 1050px;
   height: 335px;
@@ -278,90 +233,86 @@ button {
   justify-content: space-between;
   border-radius: 20px;
   position: relative;
-  border-radius: 20px;
   padding: 15px;
   margin-top: 60px;
   overflow: hidden;
 }
-.searchbar-cont{
+.searchbar-cont {
   position: relative;
   width: 100%;
   height: 100%;
   max-width: 400px;
   margin: auto;
-  
 }
-/* ingredient list styling */
-.ing-list-cont{
-  background-color: #fff;
 
+/* Ingredient List Styling */
+.ing-list-cont {
+  background-color: #fff;
   width: 70%;
   padding: 10px;
   padding-top: 0;
   border-radius: 20px;
   z-index: 10;
 }
-.ing-list-cont h2{
+.ing-list-cont h2 {
   color: black;
   font-size: large;
   font-weight: 500;
 }
-#ing-list-heading{
+#ing-list-heading {
   display: inline-block;
 }
-.fa{
+.fa {
   position: absolute;
-  left: 15px; 
+  left: 15px;
   margin: 3.5% 0% 12% 32%;
   transform: translateY(-50%);
   font-size: 18px;
   color: rgb(58, 53, 53);
   z-index: 10;
 }
-.ing-searchbar{
+.ing-searchbar {
   width: 45%;
   height: 35px;
   border-radius: 20px;
   margin: 3% 0% 6% 15%;
   outline: none;
 }
-.ing-searchbar::placeholder{
+.ing-searchbar::placeholder {
   padding: 8%;
   font-size: medium;
 }
-.fa-solid{
+.fa-solid {
   width: 25px;
   height: 25px;
-
 }
 
-/* ingredients buttons styling */
-.ing-btn-cont{
+/* Ingredient Buttons Styling */
+.ing-btn-cont {
   display: inline-block;
   width: 100%;
   margin: 0% 8% 0% 5%;
   z-index: 10;
 }
-.ing-btn-cont button{
+.ing-btn-cont button {
   width: 85px;
   margin-top: 6%;
-  align-items:center ;
+  align-items: center;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
-.ing-btn-cont button:hover{
-  transform: scale(1.09); /* Slight zoom effect */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+.ing-btn-cont button:hover {
+  transform: scale(1.09);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
-.add-ing{
+.add-ing {
   width: 15px;
   margin-top: 2%;
   margin-right: 20%;
   display: inline;
-  /* height: 14px; */
   left: 0;
   position: relative;
-  margin-right:7px ;
+  margin-right: 7px;
 }

@@ -1,4 +1,5 @@
-
+create database yummyverse;
+use yummyverse;
 -- Create Categories Table
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,

@@ -1,161 +1,223 @@
 .card {
-    background: white;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 60px;
-    border-radius: 15px;
-    overflow: hidden;
-    flex-shrink: 0;
-    width: 300px;
-    height: 330px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  }
-  .card:hover {
-    transform: scale(1.09); /* Slight zoom effect */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-  }
-  .card img {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .card .tag {
-    background: green;
-    color: white;
-    padding: 5px 15px;
-  
-    /* padding-top: 10px; */
-    font-size: 0.9em;
-    border-radius: 40px;
-    display: inline-block;
-    position: absolute;
-    margin: 75% 10px;
-  }
-  
-  .card h3 {
-    /* padding: 10px; */
-    text-align: center;
-    font-size: 1.3em;
-  
-    position: relative;
-    margin-top: 10px;
-  }
-  
-  /* like btn animation */
-  :root {
-    --color-blue: rgb(78, 101, 203);
-    --color-purple: rgb(113, 75, 128);
-    --color-pink: rgb(224, 6, 86);
-    --transition-time: 500ms;
-    --transition-ease: cubic-bezier(0.1, 0.7, 0.8, 0.3);
-  }
-  
-  /* Like button container */
-  .toggle {
-    padding-left: 230px;
-    padding-top: 5px;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 50px;
-    height: 60px;
-    border-radius: 50px;
-    place-items: center;
-    place-content: center;
-  }
-  .toggle .toggle-btn {
-    background-color: rgba(255, 255, 255, 0.7);
-  
-    padding: 8px; /* Padding around the heart icon */
-  
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  
-    display: inline-block; /* Ensure the background only wraps the SVG */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
-  }
-  .toggle .toggle-btn:hover {
-    background-color: rgba(238, 0, 0, 0.1);
-  }
-  
-  /* Checkbox for like buttons */
-  .toggle input[type="checkbox"] {
-    position: absolute;
-    visibility: hidden;
-  }
-  
-  /* Heart label styling */
-  .toggle label {
-    cursor: pointer;
-  }
-  
-  .toggle label svg {
-    width: 35px;
-  }
-  
-  .toggle label #stroke {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    stroke-linecap: round;
-    stroke-width: 2.5;
-  }
-  
-  .toggle label #initial {
-    stroke-width: 1.5;
-    stroke: var(--color-pink);
-    fill: transparent;
-  }
-  
-  /* Styling when the checkbox is checked */
-  .toggle input[type="checkbox"]:checked + label {
-    svg {
-      transform-origin: 50% 50%;
-      animation: heart var(--transition-time) cubic-bezier(0.64, -1.5, 0.64, 1.5);
-      animation-fill-mode: forwards;
-    }
-  }
-  
-  .toggle input[type="checkbox"]:checked + label #initial {
-    display: none;
-  }
-  
-  .toggle input[type="checkbox"]:checked + label #stroke {
-    animation: stroke var(--transition-time) var(--transition-ease);
+  background: white;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 300px;
+  height: 330px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.card:hover {
+  transform: scale(1.09); /* Slight zoom effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+.card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.card .tag {
+  background: green;
+  color: white;
+  padding: 5px 15px;
+
+  /* padding-top: 10px; */
+  font-size: 0.9em;
+  border-radius: 40px;
+  display: inline-block;
+  position: absolute;
+  margin: 75% 10px;
+}
+
+.card h3 {
+  /* padding: 10px; */
+  text-align: center;
+  font-size: 1.3em;
+
+  position: relative;
+  margin-top: 10px;
+}
+
+/* like btn animation */
+:root {
+  --color-blue: rgb(78, 101, 203);
+  --color-purple: rgb(113, 75, 128);
+  --color-pink: rgb(224, 6, 86);
+  --transition-time: 500ms;
+  --transition-ease: cubic-bezier(0.1, 0.7, 0.8, 0.3);
+}
+
+/* Like button container */
+.toggle {
+  padding-left: 230px;
+  padding-top: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  height: 60px;
+  border-radius: 50px;
+  place-items: center;
+  place-content: center;
+}
+.toggle .toggle-btn {
+  background-color: rgba(255, 255, 255, 0.7);
+
+  padding: 8px; /* Padding around the heart icon */
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  display: inline-block; /* Ensure the background only wraps the SVG */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
+}
+.toggle .toggle-btn:hover {
+  background-color: rgba(238, 0, 0, 0.1);
+}
+
+/* Checkbox for like buttons */
+.toggle input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Heart label styling */
+.toggle label {
+  cursor: pointer;
+}
+
+.toggle label svg {
+  width: 35px;
+}
+
+.toggle label #stroke {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+.toggle label #initial {
+  stroke-width: 1.5;
+  stroke: var(--color-pink);
+  fill: transparent;
+}
+
+/* Styling when the checkbox is checked */
+.toggle input[type="checkbox"]:checked + label {
+  svg {
+    transform-origin: 50% 50%;
+    animation: heart var(--transition-time) cubic-bezier(0.64, -1.5, 0.64, 1.5);
     animation-fill-mode: forwards;
   }
-  
-  /* Keyframes for the heart animation */
-  @keyframes heart {
-    from {
-      transform: scale(1);
-    }
-    78% {
-      transform: scale(1.25);
-    }
-    to {
-      transform: scale(1);
-    }
+}
+
+.toggle input[type="checkbox"]:checked + label #initial {
+  display: none;
+}
+
+.toggle input[type="checkbox"]:checked + label #stroke {
+  animation: stroke var(--transition-time) var(--transition-ease);
+  animation-fill-mode: forwards;
+}
+
+/* Keyframes for the heart animation */
+@keyframes heart {
+  from {
+    transform: scale(1);
   }
-  
-  /* Keyframes for the stroke animation */
-  @keyframes stroke {
-    from {
-      stroke: var(--color-blue);
-      fill: transparent;
-    }
-    50% {
-      stroke: var(--color-purple);
-    }
-    85% {
-      fill: transparent;
-    }
-    to {
-      stroke-dashoffset: 0;
-      stroke: var(--color-pink);
-      fill: var(--color-pink);
-    }
+  78% {
+    transform: scale(1.25);
   }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for the stroke animation */
+@keyframes stroke {
+  from {
+    stroke: var(--color-blue);
+    fill: transparent;.card {
+      background: white;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 60px;
+      border-radius: 15px;
+      overflow: hidden;
+      flex-shrink: 0;
+      width: 300px;
+      height: 330px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+    .card:hover {
+      transform: scale(1.09);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .card .tag {
+      background: green;
+      color: white;
+      padding: 5px 15px;
+      font-size: 0.9em;
+      border-radius: 40px;
+      display: inline-block;
+      position: absolute;
+      margin: 75% 10px;
+    }
+    
+    .card h3 {
+      text-align: center;
+      font-size: 1.3em;
+      position: relative;
+      margin-top: 10px;
+    }
+    
+    /* Simple Like Button */
+    .like-btn {
+      background-color: transparent;
+      border: none;
+      color: red;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 5px;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
+    .like-btn:hover {
+      color: darkred;
+    }
+    
+    .card .like-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+  }
+  50% {
+    stroke: var(--color-purple);
+  }
+  85% {
+    fill: transparent;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke: var(--color-pink);
+    fill: var(--color-pink);
+  }
+}

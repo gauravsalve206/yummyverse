@@ -54,17 +54,6 @@
     margin-right: 35px;
   }
   
-  /* Navbar Button */
-  button {
-    border-width: 0;
-    background-color: white;
-    border-radius: 5px;
-    width: 50px;
-    font-weight: bold;
-    margin-right: 130px;
-    height: 25px;
-  }
-  
   /* Logo Name Styling */
   .logoname {
     font-size: 25px;

@@ -1,3 +1,4 @@
+use yummyverse;
 -- Insert categories
 INSERT INTO categories (name) VALUES 
 ('Breakfast'), 

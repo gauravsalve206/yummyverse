@@ -316,3 +316,27 @@ html {
   position: relative;
   margin-right: 7px;
 }
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .mainimg {
+    width: 100%;
+    margin-left: 0;
+  }
+  .text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 24px;
+  }
+  .searchinput {
+    font-size: 14px;
+  }
+}

@@ -206,6 +206,46 @@ function searchByName($recipe_name)
     return json_encode($combined_recipes);
 }
 
+function getAllRecipes()
+{
+    global $DB_database, $DB_password, $DB_servername, $DB_username;
+    $conn = mysqli_connect($DB_servername, $DB_username, $DB_password, $DB_database);
+
+    if ($conn->connect_error) {
+        http_response_code(500);
+        echo json_encode(["error" => "Database connection failed"]);
+        exit();
+    }
+
+    // SQL query to get all recipes
+    $sql = "SELECT 
+                'local' AS source,
+                r.recipe_id AS idMeal,
+                r.name AS strMeal,
+                r.instructions AS strInstructions,
+                r.image_url AS strMealThumb,
+                r.video_url AS strYoutube,
+                c.name AS strCategory,
+                a.name AS strArea
+            FROM recipes r
+            LEFT JOIN categories c ON r.category_id = c.category_id
+            LEFT JOIN areas a ON r.area_id = a.area_id";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $recipes = [];
+        while ($row = $result->fetch_assoc()) {
+            $recipes[] = $row;
+        }
+        $conn->close();
+        return json_encode(["meals" => $recipes]);
+    } else {
+        $conn->close();
+        return json_encode(["meals" => null]);
+    }
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
     // if request to search by id
@@ -242,6 +282,11 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     if (isset($_GET['s'])) {
         $name = $_GET['s'];
         echo searchByName($name);
+    }
+
+    // if request to get all recipies
+    if (isset($_GET['all'])) {
+        echo getAllRecipes();
     }
 } else {
     http_response_code(405); // Method Not Allowed

@@ -13,8 +13,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <script src="src/js/script.js"></script>
-  <script src="src/js/featuredRecipies.js"></script>
+  <script type="module" src="src/js/script.js"></script>
+  <script type="module" src="src/js/saveRecipes.js"></script>
+  <script type="module" src="src/js/featuredRecipies.js" type="module"></script>
+  <script type="module" src="src/js/firebaseauth.js"></script>
+  <script type="module" src="src/js/auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
+
+
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
@@ -23,7 +30,7 @@
   <nav class="navbar">
     <div class="navdiv">
       <div class="logo">
-        <a href=""><img src="./src//icons/pngegg.png" alt="" width="70px" /></a>
+        <a href=""><img src="./src/icons/pngegg.png" alt="" width="70px" /></a>
       </div>
       <div class="logoname">
         <span style="color: green">YUMMYVERSE</span>
@@ -33,8 +40,9 @@
         <ul>
           <li><a href="index.html">Recieps</a></li>
           <li><a href="bookmark.html">Bookmarks</a></li>
-          <li><a href="#">Bachelors</a></li>
-          <button type="button">Login</button>
+          <li><a href="bachlore.html">Bachelors</a></li>
+          <li><a href="loginSignup.html" >Login</a></li>
+         
         </ul>
       </div>
     </div>
@@ -66,7 +74,7 @@
       </div>
       <div class="chefcontainer">
         <div class="mainimg-container">
-          <img src="./src/chef.png" alt="" class="mainimg" />
+          <img src="./src/icons/chef.png" alt="" class="mainimg" />
         </div>
         <div class="greenbg"></div>
       </div>
@@ -88,33 +96,33 @@
         <div class="ing-cont">
           <div class="first-row">
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
           </div>
           <div class="second-row">
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
             </button>
           </div>
         </div>
@@ -129,12 +137,12 @@
           <i class="fa fa-search search-icon"></i>
         </div>
         <div class="ing-btn-cont">
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
         </div>
       </form>
 
@@ -148,7 +156,22 @@
 
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2025/01/12/16/20250112160201-4UCSHNI1.js"></script>
-
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAZKbYYMLOrJebgWpf_cW-cJ50qxgVVsak",
+    authDomain: "yummyverse-793ad.firebaseapp.com",
+    projectId: "yummyverse-793ad",
+    storageBucket: "yummyverse-793ad.appspot.com",
+    messagingSenderId: "179075175539",
+    appId: "1:179075175539:web:7b7f9461481801d8c94606",
+    measurementId: "G-N6QPLP872C"
+      };
+  
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+  </script>
+  
 
 </body>
 <!-- footer -->

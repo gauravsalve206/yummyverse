@@ -1,0 +1,144 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Recipe Title */
+.container h1 {
+    text-align: left;
+    font-size: 28px;
+    color: #044904;
+    margin-bottom: 20px;
+}
+
+/* Image Section */
+.image-section {
+    position: relative;
+    max-width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Title Overlay */
+.image-section .title-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #f8a734;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+    background-color: #004d00;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: -50px;
+}
+
+.ingredients-section h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.ingredients-section ul {
+    list-style-type: none;
+}
+
+.ingredients-section ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Directions Section */
+.directions-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.directions-section h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.directions-section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Buttons Section */
+.buttons-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.bookmark {
+    background-color: #22bb33;
+    color: white;
+}
+
+button.ingredients {
+    background-color: #f4c20d;
+    color: black;
+}
+
+button.share {
+    background-color: #008cff;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .buttons-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .ingredients-section {
+        margin-top: 20px;
+    }
+}
+
+/* Smooth Shadow Effect */
+.image-section, .ingredients-section, .directions-section {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}

@@ -203,9 +203,11 @@ html {
   position: relative;
   justify-content: flex-start;
   align-items: center;
-  width: 120px;
+  width: 136px;
   cursor: pointer;
   height: 50%;
+  border: none;
+  border-radius: 8px;
   margin: 40px 10px 10px 0px;
   gap: 10%;
   text-align: center;
@@ -295,7 +297,7 @@ html {
   z-index: 10;
 }
 .ing-btn-cont button {
-  width: 85px;
+  width: 95px;
   margin-top: 6%;
   align-items: center;
   text-align: center;
@@ -339,4 +341,31 @@ html {
   .searchinput {
     font-size: 14px;
   }
+}
+
+#selectedIngredients {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 2px;
+}
+
+#selectedIngredients li {
+  display: block; /* Ensures vertical display */
+  padding: 8px;
+  background-color: #f4f4f4;
+  margin-bottom: 2px;
+  border-radius: 2px;
+  font-size: 16px;
+  color: #333;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 15px; /* Push the button to the right */
 }

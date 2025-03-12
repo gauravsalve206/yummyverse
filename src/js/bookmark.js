@@ -90,7 +90,7 @@ function generateCards() {
                 </div>
               </div>
               <span class='tag'>${meal.strCategory}</span>
-              <a href='viewRecipe.php?mealId=${meal.idMeal}' target='_blank'>
+              <a href='viewRecipe.html?mealId=${meal.idMeal}' target='_blank'>
                 <img src='${meal.strMealThumb}' alt='Recipe ${meal.idMeal}' />
                 <h3>${meal.strMeal}</h3>
               </a>

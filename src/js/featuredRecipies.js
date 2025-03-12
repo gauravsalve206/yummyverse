@@ -35,7 +35,7 @@ window.addEventListener('load', function() {
                   </div>
                 </div>
                 <span class='tag'>${meal.strCategory}</span>
-                <a href='viewRecipe.php?mealId=${meal.idMeal}'>
+                <a href='viewRecipe.html?mealId=${meal.idMeal}'>
                   <img src='${meal.strMealThumb}' alt='Recipe ${meal.idMeal}' />
                   <h3>${meal.strMeal}</h3>
                 </a>

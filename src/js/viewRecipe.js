@@ -60,16 +60,34 @@ fetch(apiUrl)
     });
 
 // Function to Embed YouTube Video
+// Function to Embed YouTube Video
+// Function to Embed YouTube Video
 function getYouTubeEmbed(url) {
-    const videoId = url.split('v=')[1]?.split('&')[0];
-    return `
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1" 
-            frameborder="0" 
-            allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>`;
+    if (!url) return '<p>No YouTube link available</p>'; // Handle missing URL
+    
+    console.log("YouTube URL:", url); // Debugging line to confirm the URL
+
+    // Improved regex for different YouTube link formats
+    const videoIdMatch = url.match(
+        /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|.*[?&]v=))([^#&?]+)/
+    );
+    const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+    console.log("Extracted videoId:", videoId); // Debugging line to confirm video ID
+
+    if (videoId) {
+        return `
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>`;
+    } else {
+        return '<p>Invalid YouTube link</p>';
+    }
 }
+
 
 // Function to Show Alert
 function showAlert(message) {

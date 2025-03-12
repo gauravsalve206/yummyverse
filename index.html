@@ -17,6 +17,7 @@
   <script type="module" src="src/js/saveRecipes.js"></script>
   <script type="module" src="src/js/featuredRecipies.js" type="module"></script>
   <script type="module" src="src/js/firebaseauth.js"></script>
+  <script type="module" src="src/js/add-ing.js"></script>
   <script type="module" src="src/js/auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
@@ -58,7 +59,7 @@
           Hello <span class="highlight">Foddies,</span>Whats Cooking Today?
         </h2>
         <!-- Search bar code -->
-        <form action="search.php" method="get" name="SearchForm">
+        <form action="search.html" method="get" name="SearchForm">
           <div class="search">
             <div class="searchicon">
               <img src="src/icons/icons8-search-30.png" width="" onclick="Javascript:document.SearchForm.submit()" />
@@ -92,37 +93,37 @@
     </div>
     <div class="find-recipe">
       <h2>Find Recipes by Ingredients</h2>
-      <form action="http://localhost/cpp/search.php" method="get">
+      <form action="http://localhost/cpp/search.html" method="get">
         <div class="ing-cont">
           <div class="first-row">
             <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+              <img class="ing-icon" src="src/icons/potato.png" width="35px" alt="ing-img" />Potato
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="paneer">
+              <img class="ing-icon" src="src/icons/paneer.png" width="35px" alt="ing-img" />Paneer
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="chicken">
+              <img class="ing-icon" src="src/icons/chicken.png" width="35px" alt="ing-img" />Chicken
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="milk">
+              <img class="ing-icon" src="src/icons/milk.png" width="35px" alt="ing-img" />Milk
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="bread">
+              <img class="ing-icon" src="src/icons/bread.png" width="35px" alt="ing-img" />Bread
             </button>
           </div>
           <div class="second-row">
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="mushrooms">
+              <img class="ing-icon" src="src/icons/mushroom.png" width="35px" alt="ing-img" />Mushrooms
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="eggs">
+              <img class="ing-icon" src="src/icons/eggs.png" width="35px" alt="ing-img" />Eggs
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="cabbage">
+              <img class="ing-icon" src="src/icons/cabbage.png" width="35px" alt="ing-img" />Cabbage
             </button>
-            <button class="ing-btn" name="ing" value="potato">
-              <img class="ing-icon" src="src/icons/ing-icon.png" width="35px" alt="ing-img" />potato
+            <button class="ing-btn" name="ing" value="rice">
+              <img class="ing-icon" src="src/icons/rice.png" width="35px" alt="ing-img" />Rice
             </button>
           </div>
         </div>
@@ -130,25 +131,29 @@
     </div>
     <!-- search by ingredients list and searchbar -->
     <div class="search-ing-cont">
-      <form action="http://localhost/cpp/search.php" method="get">
+      <form  method="get" action="">
         <!-- SearchBar and ingrediants buttons -->
         <div class="searcbar-cont">
-          <input type="text" class="ing-searchbar" placeholder="Search..." />
+          <input type="text" class="ing-searchbar" id="searchInput" placeholder="Search..." />
+          <!--<button onclick="addSearchedIngredient()" type="button">➕ Add</button>-->
           <i class="fa fa-search search-icon"></i>
         </div>
         <div class="ing-btn-cont">
           <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
-          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Potato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Onion</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Tomato</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Chicken</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Eggs</button>
+          <button type="button"><img src="src/icons/add-ing.png" alt="add" class="add-ing">Milk</button>
         </div>
       </form>
-
+      
       <div class="ing-list-cont">
         <i class="fa-solid fa-list"></i>
         <h2 id="ing-list-heading">Ingredients List</h2>
+        <ul id="selectedIngredients">
+          <!-- Selected ingredients will be added here -->
+        </ul>
       </div>
     </div>
 

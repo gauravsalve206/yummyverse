@@ -1,6 +1,6 @@
 1 Search By id 
 
-http://localhost/cpp/api.php?id=10
+http://localhost/cpp/src/api/api.php?id=10
 
 sample responce:-
 {
@@ -61,7 +61,7 @@ sample responce:-
 
 2 Search By Ingredients
 
-http://localhost/cpp/api.php?ing=eggs,tomato
+http://localhost/cpp/src/api/api.php?ing=eggs,tomato
 
 sample responce:-
 {
@@ -137,7 +137,7 @@ sample responce:-
 
 3.  Search By Name
 
-http://localhost/cpp/api.php?s=poha
+http://localhost/cpp/src/api/api.php?s=poha
 
 sample responce:-
 
@@ -152,6 +152,77 @@ sample responce:-
       "strYoutube": "https://youtu.be/examplepoha",
       "strCategory": "Breakfast",
       "strArea": "West Indian"
+    }
+  ]
+}
+
+4. Get all Recipies
+
+http://localhost/cpp/src/api/api.php?all=true
+
+sample responce:-
+
+{
+  "meals": [
+    {
+      "source": "local",
+      "idMeal": "1",
+      "strMeal": "Poha",
+      "strInstructions": "Wash poha thoroughly to remove excess starch and soak lightly. Heat oil in a pan, add mustard seeds, curry leaves, and chopped green chilies. Sauté onions until translucent and mix in the poha. Season with salt, turmeric, and sugar, and mix well. Garnish with fresh coriander and serve with lemon wedges.",
+      "strMealThumb": "https://example.com/images/poha.jpg",
+      "strYoutube": "https://youtu.be/examplepoha",
+      "strCategory": "Breakfast",
+      "strArea": "West Indian"
+    },
+    {
+      "source": "local",
+      "idMeal": "2",
+      "strMeal": "Upma",
+      "strInstructions": "Dry roast semolina in a pan until slightly golden and aromatic, then set aside. Heat oil, temper with mustard seeds, curry leaves, and green chilies. Add finely chopped vegetables and sauté until tender. Stir in roasted semolina and gradually add hot water while mixing to avoid lumps. Cook until the mixture thickens and serve hot.",
+      "strMealThumb": "https://example.com/images/upma.jpg",
+      "strYoutube": "https://youtu.be/exampleupma",
+      "strCategory": "Breakfast",
+      "strArea": "West Indian"
+    },
+    {
+      "source": "local",
+      "idMeal": "3",
+      "strMeal": "Masala Dosa",
+      "strInstructions": "Prepare dosa batter by fermenting a mixture of rice and urad dal overnight. Heat a dosa pan, pour a ladleful of batter, and spread it thin. Add spiced potato filling in the center and fold the dosa. Serve hot with coconut chutney and sambhar.",
+      "strMealThumb": "https://example.com/images/masaladosa.jpg",
+      "strYoutube": "https://youtu.be/examplemasaladosa",
+      "strCategory": "Breakfast",
+      "strArea": "South Indian"
+    },
+    {
+      "source": "local",
+      "idMeal": "4",
+      "strMeal": "Aloo Paratha",
+      "strInstructions": "Prepare dough by mixing whole wheat flour with water and kneading to a soft consistency. Stuff the dough with a mixture of spiced mashed potatoes, roll out into flat discs, and cook on a hot tawa. Brush with ghee and serve with curd or pickle.",
+      "strMealThumb": "https://example.com/images/alooparatha.jpg",
+      "strYoutube": "https://youtu.be/examplealooparatha",
+      "strCategory": "Breakfast",
+      "strArea": "North Indian"
+    },
+    {
+      "source": "local",
+      "idMeal": "5",
+      "strMeal": "Vegetable Sandwich",
+      "strInstructions": "Spread butter or chutney on slices of bread. Layer with thinly sliced vegetables like cucumber, tomato, and onion. Add a sprinkle of salt and pepper. Close the sandwich and toast it in a sandwich maker or grill. Serve with ketchup or green chutney.",
+      "strMealThumb": "https://example.com/images/vegetablesandwich.jpg",
+      "strYoutube": "https://youtu.be/examplevegetablesandwich",
+      "strCategory": "Breakfast",
+      "strArea": "North Indian"
+    },
+    {
+      "source": "local",
+      "idMeal": "6",
+      "strMeal": "Rajma Chawal",
+      "strInstructions": "Soak rajma (kidney beans) overnight and cook until soft. Sauté onions, ginger, and garlic in oil, add tomato puree and cook with spices. Mix in cooked rajma and simmer for a few minutes. Serve hot over steamed rice.",
+      "strMealThumb": "https://example.com/images/rajmachawal.jpg",
+      "strYoutube": "https://youtu.be/examplerajmachawal",
+      "strCategory": "Lunch",
+      "strArea": "North Indian"
     }
   ]
 }

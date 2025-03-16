@@ -1,10 +1,10 @@
 <?php
 header("Content-Type: application/json");
 //DB Connection
-$DB_servername = "localhost";
-$DB_username = "root";
-$DB_password = "";
-$DB_database = "yummyverse";
+$DB_servername = "sql110.infinityfree.com";
+$DB_username = "if0_38513018";
+$DB_password = "ni9yao4igqXz3";
+$DB_database = "if0_38513018_yummyverse";
 
 //search recipe by id
 function searchById($recipe_id)

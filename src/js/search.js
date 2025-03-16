@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let apiUrl = "";
   
     if (mealName) {
-      apiUrl = `http://localhost/cpp/src/api/api.php?s=${mealName}`;
+      apiUrl = `http://yummyverse.free.nf/src/api/api.php?s=${mealName}`;
     } else if (ing) {
-      apiUrl = `http://localhost/cpp/src/api/api.php?ing=${ing}`;
+      apiUrl = `http://yummyverse.free.nf/src/api/api.php?ing=${ing}`;
     }
   
     if (apiUrl) {

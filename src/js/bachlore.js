@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
     const mealContainer = document.querySelector('.card-container');
   
     // Fetch all meals from localhost API
-    fetch('http://localhost/cpp/src/api/api.php?all=true')
+    fetch('http://yummyverse.free.nf/src/api/api.php?all=true')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

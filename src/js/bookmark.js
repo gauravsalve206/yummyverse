@@ -59,7 +59,7 @@ function generateCards() {
 
   mealIds.forEach((mealId, index) => {
     const url = mealId < 50
-      ? `http://yummyverse.free.nf/src/api/api.php?id=${mealId}`
+      ? `https://yummyverse.free.nf/src/api/api.php?id=${mealId}`
       : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
 
     fetch(url)

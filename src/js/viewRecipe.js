@@ -11,7 +11,7 @@ if (!mealId) {
 
 // API Endpoint - Dynamic Based on ID
 const apiUrl = mealId < 50
-    ? `http://localhost/cpp/src/api/api.php?id=${mealId}`
+    ? `https://localhost/cpp/src/api/api.php?id=${mealId}`
     : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
 
 // Fetch Recipe Details

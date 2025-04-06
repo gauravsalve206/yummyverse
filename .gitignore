@@ -1,0 +1,16 @@
+# Ignore config file
+src/api/config.php
+
+# Ignore environment variables
+.env
+
+# Ignore vendor (if using Composer)
+vendor/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db

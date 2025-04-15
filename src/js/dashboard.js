@@ -26,3 +26,5 @@ document.getElementById('logoutButton').addEventListener('click', function () {
         alert('Failed to log out. Please try again.');
     });
 });
+
+

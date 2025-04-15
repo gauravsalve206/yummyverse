@@ -11,3 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         container.classList.remove("right-panel-active");
     });
 });
+
+
+
+

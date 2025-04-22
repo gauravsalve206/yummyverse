@@ -38,7 +38,7 @@
                 <div class="profile-image"></div>
                 <div class="profile-info">
                     <h2>Robert Downey Jr.</h2>
-                    <p>132 My Street, Kingston,<br>New York 12401</p>
+                    <!-- <p>132 My Street, Kingston,<br>New York 12401</p> -->
                 </div>
             </div>
         </div>
@@ -46,7 +46,15 @@
         <div class="content-section">
             <div class="buying-list">
                 <h3>Buying List</h3>
-                <p>🗒️ Ingredients List</p>
+                <div class="searcbar-cont">
+                  <input type="text" class="ing-searchbar" id="searchInput" placeholder="Search..." />
+                  <button id="addSearchedIngredient" type="button" alt="add">➕ Add</button>
+                </div>
+                <div class="ing-list-cont">
+                  <ul id="selectedIngredients">
+                    <!-- Selected ingredients will be added here -->
+                  </ul>
+                </div>
             </div>
 
             <div class="cooked-section">
@@ -88,8 +96,10 @@
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-      import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+      import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
     
+      // Firebase config
       const firebaseConfig = {
         apiKey: "AIzaSyAZKbYYMLOrJebgWpf_cW-cJ50qxgVVsak",
         authDomain: "yummyverse-793ad.firebaseapp.com",
@@ -100,11 +110,13 @@
         measurementId: "G-N6QPLP872C"
       };
     
+      // Initialize Firebase services
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      const db = getFirestore(app);
     
+      // Logout button
       const logoutBtn = document.getElementById('logoutBtn');
-    
       if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
           signOut(auth).then(() => {
@@ -118,6 +130,39 @@
       } else {
         console.error('Logout button not found');
       }
+    
+      // User session listener
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const uid = user.uid;
+    
+          try {
+            // Fetch user document from Firestore
+            const userDocRef = doc(db, "users", uid);
+            const userDocSnap = await getDoc(userDocRef);
+    
+            if (userDocSnap.exists()) {
+              const userData = userDocSnap.data();
+              const username = userData.Username;
+    
+              // Update dashboard profile card
+              const profileNameElement = document.querySelector('.profile-info h2');
+              if (profileNameElement) {
+                profileNameElement.textContent = username;
+              } else {
+                console.error('Profile name element not found.');
+              }
+            } else {
+              console.error("No user data found in Firestore.");
+            }
+          } catch (error) {
+            console.error("Error fetching user data: ", error);
+          }
+    
+        } else {
+          window.location.href = 'loginSignup.html';
+        }
+      });
     </script>
     
 </body>

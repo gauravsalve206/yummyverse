@@ -1,95 +1,93 @@
 const recipeContent = document.getElementById('recipeContent');
 
-// Get the mealId from URL
+// Show loading state early
+if (recipeContent) {
+    recipeContent.innerHTML = '<p>Loading recipe...</p>';
+}
+
+// Get mealId from URL
 const urlParams = new URLSearchParams(window.location.search);
 const mealId = urlParams.get('mealId');
 
-// Check if mealId is provided
+// Validate mealId
 if (!mealId) {
     showAlert('Meal ID not provided in the URL.');
+    throw new Error('Missing meal ID.');
 }
 
-// API Endpoint - Dynamic Based on ID
-const apiUrl = mealId < 50
-    ? `https://yummyverse.free.nf/src/api/api.php?id=${mealId}`
-    : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+const mealIdNum = parseInt(mealId, 10);
 
-// Fetch Recipe Details
+// Dynamic API selection
+const apiUrl = mealIdNum < 50
+    ? `https://yummyverse.free.nf/src/api/api.php?id=${mealIdNum}`
+    : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealIdNum}`;
+
+// Fetch Recipe
 fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        if (data.meals === null || !data.meals.length) {
+        if (!data.meals || !data.meals.length) {
             showAlert('No meal found.');
             return;
         }
 
         const meal = data.meals[0];
 
-        // Exclude Beef recipes
+        // Block beef category
         if (meal.strCategory === 'Beef') {
             showAlert('This recipe contains Beef and is not allowed as per our standards.');
             return;
         }
 
-        // YouTube Video Embed
+        // Embed YouTube video
         const youtubeEmbed = meal.strYoutube ? getYouTubeEmbed(meal.strYoutube) : '';
 
-        // Generate Ingredients List
+        // Ingredients list
         let ingredients = '<ul>';
         for (let i = 1; i <= 20; i++) {
             const ingredient = meal[`strIngredient${i}`];
             const measure = meal[`strMeasure${i}`];
-            if (ingredient && ingredient.trim() !== '') {
+            if (ingredient && ingredient.trim()) {
                 ingredients += `<li>${ingredient} - ${measure}</li>`;
             }
         }
         ingredients += '</ul>';
 
-        // Append Data to Content
+        // Update HTML content
         recipeContent.innerHTML = `
-                    <h3>Meal Name: ${meal.strMeal}</h3>
-                    ${youtubeEmbed}
-                    <div><strong>Category:</strong> ${meal.strCategory}</div>
-                    <div><strong>Ingredients:</strong> ${ingredients}</div>
-                    <div><strong>Instructions:</strong> ${meal.strInstructions.replace(/\n/g, '<br>')}</div>
-                `;
+            <h2>${meal.strMeal}</h2>
+            <div class="video-container">${youtubeEmbed}</div>
+            <p><strong>Category:</strong> ${meal.strCategory}</p>
+            <h4>Ingredients</h4>
+            ${ingredients}
+            <h4>Instructions</h4>
+            <p>${meal.strInstructions.replace(/\n/g, '<br>')}</p>
+        `;
     })
     .catch(err => {
         console.error(err);
         showAlert('Error fetching meal details.');
     });
 
-// Function to Embed YouTube Video
-// Function to Embed YouTube Video
-// Function to Embed YouTube Video
+// YouTube Video Embed - Responsive
 function getYouTubeEmbed(url) {
-    if (!url) return '<p>No YouTube link available</p>'; // Handle missing URL
-    
-    console.log("YouTube URL:", url); // Debugging line to confirm the URL
-
-    // Improved regex for different YouTube link formats
-    const videoIdMatch = url.match(
-        /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|.*[?&]v=))([^#&?]+)/
-    );
-    const videoId = videoIdMatch ? videoIdMatch[1] : null;
-
-    console.log("Extracted videoId:", videoId); // Debugging line to confirm video ID
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|.*[?&]v=))([^#&?]+)/);
+    const videoId = match ? match[1] : null;
 
     if (videoId) {
         return `
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1" 
+            <iframe 
+                src="https://www.youtube.com/embed/${videoId}" 
                 frameborder="0" 
-                allow="autoplay; encrypted-media" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>`;
     } else {
-        return '<p>Invalid YouTube link</p>';
+        return '<p>No valid YouTube video available.</p>';
     }
 }
 
-
-// Function to Show Alert
+// Simple alert wrapper
 function showAlert(message) {
     alert(message);
 }

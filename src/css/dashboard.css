@@ -1,210 +1,209 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0fff4; /* Soft green background */
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0fff4; /* Soft green background */
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .dashboard-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .profile-section {
-    background-color: #c3eac3;
-    border-radius: 15px;
-    padding: 20px;
+  background-color: #c3eac3;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .profile-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
-    background-color: #c3eac3;
-    border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #c3eac3;
+  border-radius: 50%;
 }
 
 .profile-info h2 {
-    margin: 0;
-    color: #004526;
+  margin: 0;
+  color: #004526;
 }
 
 .profile-info p {
-    margin: 5px 0;
-    color: #666;
+  margin: 5px 0;
+  color: #666;
 }
 
 .content-section {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
 }
 
 .buying-list,
 .cooked-section {
-    background-color: #c3eac3;
-    border-radius: 15px;
-    padding: 20px;
-    overflow: hidden;
+  background-color: #c3eac3;
+  border-radius: 15px;
+  padding: 20px;
+  overflow: hidden;
 }
 
 h3 {
-    margin-top: 0;
-    color: #004526;
+  margin-top: 0;
+  color: #004526;
 }
 
 .recipes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
 }
 
 .recipe-card {
-    background-color: #fff;
-    border-radius: 10px;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-card img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .recipe-card p {
-    margin: 10px 0 0;
-    font-weight: bold;
-    color: #004526;
+  margin: 10px 0 0;
+  font-weight: bold;
+  color: #004526;
 }
 .logout-btn {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition:  0.3s ease;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition:  0.3s ease;
 }
 
 .logout-btn:hover {
-    background-color: #e04343;
+  background-color: #e04343;
 }
 
 
 
 .ing-list-cont {
-    overflow: hidden;
-    background-color: #fff;
-    width: 100%;
-    height: 60%;
-    padding: 10px;
-    padding-top: 0;
-    border-radius: 20px
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  height: 60%;
+  padding: 10px;
+  padding-top: 0;
+  border-radius: 20px
 }
 
 .searcbar-cont{
-    display: flex;
+  display: flex;
 }
 
 /* Search Input Styling */
 
 #searchInput {
-    margin-left: 0%;
-    width: 80%;
-    margin-top: 0%;
-    height: 20px;
-    max-width: 400px;
-    font-size: 16px;
-    color: #004526;
-    border: none;
-    border-bottom: 2px solid #004526;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  #searchInput::placeholder {
-    color: #004526;
-    font-size: larger;
-  }
-  
-  #searchInput:focus {
-    border-color: #004526;
-  }
-  
-  /* Add Button */
-  #addSearchedIngredient {
-    height: 20px;
-    margin-left: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #ffffff;
-    border: 1px solid #004526;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  #addSearchedIngredient:hover {
-    background-color: #00ff40;
-    color: #004526;
-  }
-  
-  /* Selected Ingredients List */
-  #selectedIngredients {
-    list-style-type: none;
-    padding: 0;
-    margin: 2px;
-    max-height: 600px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  #selectedIngredients li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background: #f0f0f0;
-    margin: 5px 0;
-    border-radius: 5px;
-  }
-  
-  .ingredient-name {
-    flex-grow: 1;
-    color: #004526;
-    font-weight: 500;
-  }
-  
-  /* Remove Button */
-  .remove-btn {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Scrollbar Styling */
-  #selectedIngredients::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  #selectedIngredients::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-  
-  #selectedIngredients::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  }
-  
+  margin-left: 0%;
+  width: 80%;
+  margin-top: 0%;
+  height: 20px;
+  max-width: 400px;
+  font-size: 16px;
+  color: #004526;
+  border: none;
+  border-bottom: 2px solid #004526;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#searchInput::placeholder {
+  color: #004526;
+  font-size: larger;
+}
+
+#searchInput:focus {
+  border-color: #004526;
+}
+
+/* Add Button */
+#addSearchedIngredient {
+  height: 20px;
+  margin-left: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #004526;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#addSearchedIngredient:hover {
+  background-color: #00ff40;
+  color: #004526;
+}
+
+/* Selected Ingredients List */
+#selectedIngredients {
+  list-style-type: none;
+  padding: 0;
+  margin: 2px;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#selectedIngredients li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f0f0f0;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.ingredient-name {
+  flex-grow: 1;
+  color: #004526;
+  font-weight: 500;
+}
+
+/* Remove Button */
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Scrollbar Styling */
+#selectedIngredients::-webkit-scrollbar {
+  width: 8px;
+}
+
+#selectedIngredients::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+#selectedIngredients::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

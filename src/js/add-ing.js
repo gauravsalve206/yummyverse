@@ -21,22 +21,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  
+
+
+
   function addIngredient(ingredient) {
-    // Prevent duplicates
-    const alreadyExists = [...selectedIngredientsList.children].some(item =>
-      item.textContent.replace("X", "").trim().toLowerCase() === ingredient.toLowerCase()
+    const alreadyExists = [...selectedIngredientsList.querySelectorAll("span")].some(span =>
+      span.textContent.trim().toLowerCase() === ingredient.toLowerCase()
     );
     if (alreadyExists) return;
-
+  
     const li = document.createElement("li");
-    li.textContent = ingredient;
-
+  
+    const span = document.createElement("span");
+    span.textContent = ingredient;
+  
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "X";
     removeBtn.classList.add("remove-btn");
     removeBtn.addEventListener("click", () => li.remove());
-
-    li.appendChild(removeBtn);
+  
+    li.appendChild(span);       // ✅ Add ingredient name in span
+    li.appendChild(removeBtn);  // ✅ Add remove button
     selectedIngredientsList.appendChild(li);
   }
+  
+  document.querySelector('.search-recipe-btn').addEventListener('click', function () {
+    const ingredientSpans = document.querySelectorAll('#selectedIngredients li span'); // only get span text
+  
+    const ingredients = Array.from(ingredientSpans)
+      .map(span => span.textContent.trim()) // ✅ no "X" included
+      .filter(text => text.length > 0);
+  
+    if (ingredients.length > 0) {
+      const query = ingredients.join(',');
+      window.location.href = `https://yummyverse.free.nf/search.html?ing=${encodeURIComponent(query)}`;
+    } else {
+      alert("No recipe found!");
+    }
+  });
+  
+
 });

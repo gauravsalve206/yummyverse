@@ -390,3 +390,29 @@ html {
 #selectedIngredients::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+
+
+
+.ingredients-list-container {
+  position: relative;
+  padding-bottom: 60px; /* so content doesn't overlap button */
+}
+
+.search-recipe-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.search-recipe-btn:hover {
+  background-color: #019875;
+}

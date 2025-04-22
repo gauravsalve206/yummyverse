@@ -1,118 +1,172 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { 
+  auth, 
+  db, 
+  doc, 
+  getDoc,
+  updateDoc,
+  arrayRemove
+} from './firebaseconfig.js';
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// Your Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAZKbYYMLOrJebgWpf_cW-cJ50qxgVVsak",
-    authDomain: "yummyverse-793ad.firebaseapp.com",
-    projectId: "yummyverse-793ad",
-    storageBucket: "yummyverse-793ad.appspot.com",
-    messagingSenderId: "179075175539",
-    appId: "1:179075175539:web:7b7f9461481801d8c94606",
-    measurementId: "G-N6QPLP872C"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-
-async function fetchSavedRecipeIds() {
-  return new Promise((resolve, reject) => {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        try {
-          const userId = user.uid;
-          const usersCollection = collection(db, 'users');
-          const userDocRef = doc(usersCollection, userId);
-          const userDocSnapshot = await getDoc(userDocRef);
-
-          if (userDocSnapshot.exists()) {
-            const userData = userDocSnapshot.data();
-            const savedRecipeIds = userData.savedRecipies || []; // Handle undefined savedRecipies
-            resolve(savedRecipeIds);
-          } else {
-            console.log("User document not found!");
-            resolve([]); // Resolve with an empty array
-          }
-        } catch (error) {
-          console.error("Error fetching saved recipes:", error);
-          reject(error);
-        }
-      } else {
-        console.log("No user is currently signed in.");
-        resolve([]); // Resolve with an empty array
-      }
-    });
-  });
-}
-
-let mealIds = [];
-
-function generateCards() {
+document.addEventListener('DOMContentLoaded', async () => {
   const mealContainer = document.querySelector('.card-container');
-  if (!mealContainer) { // Check if the container exists
-    console.error("Meal container element not found!");
-    return;
-  }
+  if (!mealContainer) return;
 
-  mealIds.forEach((mealId, index) => {
-    const url = mealId < 50
-      ? `https://yummyverse.free.nf/src/api/api.php?id=${mealId}`
-      : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+  mealContainer.innerHTML = '<div class="loading">Loading your saved recipes...</div>';
 
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      mealContainer.innerHTML = '<div class="login-prompt">Please log in to view saved recipes</div>';
+      return;
+    }
+
+    try {
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+
+      if (!userDoc.exists()) {
+        mealContainer.innerHTML = '<div class="empty">No saved recipes found</div>';
+        return;
+      }
+
+      const savedRecipes = userDoc.data().savedRecipies || [];
+
+      if (savedRecipes.length === 0) {
+        mealContainer.innerHTML = '<div class="empty">You haven\'t saved any recipes yet</div>';
+        return;
+      }
+
+      mealContainer.innerHTML = '';
+      let recipesLoaded = 0;
+
+      for (const recipe of savedRecipes) {
+        // If the recipe is a full object (local recipe)
+        if (typeof recipe === 'object' && recipe.id && recipe.title) {
+          recipesLoaded++;
+          createLocalCard(recipe, mealContainer, user.uid);
+        } 
+        // If recipe is just an ID (remote)
+        else if (typeof recipe === 'string') {
+          try {
+            const url = parseInt(recipe) < 50 
+              ? `https://yummyverse.free.nf/src/api/api.php?id=${recipe}`
+              : `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe}`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.meals && data.meals.length > 0) {
+              recipesLoaded++;
+              const meal = data.meals[0];
+              createRemoteCard(meal, mealContainer, user.uid);
+            }
+          } catch (err) {
+            console.error(`Failed to load remote meal ${recipe}:`, err);
+          }
         }
-        return response.json();
-      })
-      .then(data => {
-        if (data.meals && Array.isArray(data.meals)) {
-          data.meals.forEach(meal => {
-            if (meal.strCategory === 'Beef') return; // Exclude Beef meals
+      }
 
-            const card = document.createElement('div');
-            card.className = 'card';
+      if (recipesLoaded === 0) {
+        mealContainer.innerHTML = '<div class="empty">Could not load any saved recipes</div>';
+      }
 
-            card.innerHTML = `
-              <div class='toggle'>
-                <div class='toggle-btn'>
-                  <input type='checkbox' id='heart-check${index}' />
-                  <input type='hidden' id='mealId${index}' name='mealId' value='${meal.idMeal}'>
-                  <label for='heart-check${index}' id='heart${index}'>
-                    <svg viewBox='0 0 24 22' xmlns='http://www.w3.org/2000/svg'>
-                      <path id='initial' d='M11.8189091,20.3167303 C17.6981818,16.5505143 20.6378182,12.5122542 20.6378182,8.20195014 C20.6378182,5.99719437 18.8550242,4 16.3283829,4 C13.777264,4 12.5417153,6.29330284 11.8189091,6.29330284 C11.0961029,6.29330284 10.1317157,4 7.30943526,4 C4.90236126,4 3,5.64715533 3,8.20195014 C3,12.5122346 5.93963637,16.5504946 11.8189091,20.3167303 Z'></path>
-                    </svg>
-                  </label>
-                </div>
-              </div>
-              <span class='tag'>${meal.strCategory}</span>
-              <a href='viewRecipe.html?mealId=${meal.idMeal}' target='_blank'>
-                <img src='${meal.strMealThumb}' alt='Recipe ${meal.idMeal}' />
-                <h3>${meal.strMeal}</h3>
-              </a>
-            `;
+    } catch (error) {
+      console.error("Error loading saved recipes:", error);
+      mealContainer.innerHTML = '<div class="error">Failed to load saved recipes</div>';
+    }
+  });
+});
 
-            mealContainer.appendChild(card);
-          });
-        }
-      })
-      .catch(() => {
-        console.error('Failed to fetch meals from API');
-        alert('Failed to fetch meals.');
-      });
+function createLocalCard(recipe, container, userId) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  card.innerHTML = `
+    <div class='like-container'>
+      <input type='checkbox' id='like-${recipe.id}' class='like-checkbox' checked />
+      <label for='like-${recipe.id}' class='heart-label liked'>♥</label>
+    </div>
+    <span class='tag'>${recipe.category || 'Recipe'}</span>
+    <a href='viewRecipe.html?mealId=${recipe.id}&isLocal=true'>
+      <img src='${recipe.image}' alt='${recipe.title}' onerror="this.src='fallback-image.jpg'">
+      <h3>${recipe.title}</h3>
+    </a>
+  `;
+
+  container.appendChild(card);
+  setupUnlikeLocal(recipe, userId, card);
+}
+
+function createRemoteCard(meal, container, userId) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  const uniqueId = meal.idMeal;
+
+  card.innerHTML = `
+    <div class='like-container'>
+      <input type='checkbox' id='like-${uniqueId}' class='like-checkbox' checked />
+      <label for='like-${uniqueId}' class='heart-label liked'>♥</label>
+    </div>
+    <span class='tag'>${meal.strCategory}</span>
+    <a href='viewRecipe.html?mealId=${meal.idMeal}'>
+      <img src='${meal.strMealThumb}' alt='${meal.strMeal}' onerror="this.src='fallback-image.jpg'">
+      <h3>${meal.strMeal}</h3>
+    </a>
+  `;
+
+  container.appendChild(card);
+  setupUnlikeRemote(uniqueId, userId, card);
+}
+
+function setupUnlikeLocal(recipeObj, userId, cardElement) {
+  const checkbox = document.querySelector(`#like-${recipeObj.id}`);
+  const heartLabel = document.querySelector(`label[for='like-${recipeObj.id}']`);
+
+  checkbox.addEventListener('change', async () => {
+    if (!checkbox.checked) {
+      try {
+        const userRef = doc(db, 'users', userId);
+        await updateDoc(userRef, {
+          savedRecipies: arrayRemove(recipeObj)
+        });
+
+        cardElement.remove();
+        updateEmptyState();
+      } catch (err) {
+        console.error("Error removing local recipe:", err);
+        checkbox.checked = true;
+        alert("Failed to remove. Please try again.");
+      }
+    }
   });
 }
 
+function setupUnlikeRemote(mealId, userId, cardElement) {
+  const checkbox = document.querySelector(`#like-${mealId}`);
+  const heartLabel = document.querySelector(`label[for='like-${mealId}']`);
 
-fetchSavedRecipeIds()
-  .then(recipeIds => {
-    mealIds = recipeIds;
-    generateCards(); // Call generateCards after mealIds are fetched
-  })
-  .catch(error => {
-    console.error("Error fetching recipe IDs:", error);
+  checkbox.addEventListener('change', async () => {
+    if (!checkbox.checked) {
+      try {
+        const userRef = doc(db, 'users', userId);
+        await updateDoc(userRef, {
+          savedRecipies: arrayRemove(mealId)
+        });
+
+        cardElement.remove();
+        updateEmptyState();
+      } catch (err) {
+        console.error("Error removing remote recipe:", err);
+        checkbox.checked = true;
+        alert("Failed to remove. Please try again.");
+      }
+    }
   });
+}
+
+function updateEmptyState() {
+  const container = document.querySelector('.card-container');
+  if (container && container.children.length === 0) {
+    container.innerHTML = '<div class="empty">No saved recipes remaining</div>';
+  }
+}

@@ -44,7 +44,7 @@ Yummyverse is a responsive and user-friendly recipe finder website that helps us
 
 ## 🛠️ Getting Started Locally
 
-1. **Clone the repository:**
+**Clone the repository:**
 
    ```bash
    git clone https://github.com/gauravsalve206/yummyverse.git
